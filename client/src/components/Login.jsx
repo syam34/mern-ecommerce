@@ -13,13 +13,9 @@ export default function Login() {
                 if(res.status==200){
                     alert("Login successful")
                     localStorage.setItem("token",res.data.token)
+                    localStorage.setItem("role", res.data.user.role);
                     navigate("/")
                 }
-                else if(res.status==401){
-                    alert(res.data.message)
-                }
-                const token = jwt.sign({id:User._id},process.env.JWT_SECRET,{expiresIn:"1d"})
-                return res.status(200).json({message:"Login successful",user,token})
             })
             .catch(err=>{
                 console.log(err)
@@ -27,7 +23,6 @@ export default function Login() {
                     alert(err.response.data.message)
                     return
                 }
-                
             })
     }
   return (
