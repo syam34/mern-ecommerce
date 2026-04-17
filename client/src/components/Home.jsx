@@ -4,7 +4,7 @@ import API from "../api/axios";
 function Home() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
- const role=localStorage.getItem("user.role")
+  const role=localStorage.getItem("role")
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -51,12 +51,7 @@ function Home() {
                     <p>₹{p.price}</p>
                     <p>{p.description}</p>
                     {
-                      role=="user"&&<button
-                                          className="btn btn-success w-100"
-                                          onClick={() => addToCart(p._id)}
-                                        >
-                                          Add to Cart
-                                        </button>
+                      role=="user"&&<button className="btn btn-success w-100" onClick={() => addToCart(p._id)}>  Add to Cart </button>
                     }
                     
                   </div>
