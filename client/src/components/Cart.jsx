@@ -20,7 +20,6 @@ function Cart() {
     }
   };
 
-  // ✅ Total calculation
   const getTotal = () => {
     if (!cart || !cart.item) return 0;
 
